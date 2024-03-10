@@ -6,7 +6,6 @@ module.exports = {
     mode: "production",
     devtool: "inline-source-map",
     entry: "./src/index.js",
-    setupFiles: "./src/jst.config.js",
 
     output: {
         filename: "main.js",

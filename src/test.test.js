@@ -1,22 +1,43 @@
 import { HashMap } from "./index";
 
-// const HashMap = require('./index');
 describe("testin", () => {
+    let map = new HashMap;
+    map.set("juan", "le gusta correr")
+    map.set("juan", "le gusta correr")
+    map.set("juan", "le gusta nadar")
+    map.set("monica", "le gusta correr")
+    map.set("carlos", "le gusta correr")
+    map.set("camilo", "le gusta correr")
+    map.set("juna", "le gusta nadar")
+    map.set("albeerto", "le gusta correr")
+    map.set("david", "le gusta correr")
 
     test("size", () => {
-        let t = new HashMap;
-        t.set("juan", "le gusta correr")
-        t.set("juan", "le gusta correr")
-        t.set("juan", "le gusta nadar")
-        t.set("monica", "le gusta correr")
-        t.set("carlos", "le gusta correr")
-        t.set("camilo", "le gusta correr")
-        t.set("juna", "le gusta nadar")
-        // t.set("juan", "le gusta nadar")
-        // t.set("juan", "le gusta correr")
-        t.set("albeerto", "le gusta correr")
-        t.set("david", "le gusta correr")
-        expect(t.length()).toBe(7);
-        expect(t.hash("juan")).toBe(8)
+        expect(map.length()).toBe(7);
+    })
+    test("hash", () => {
+        expect(map.hash("juan")).toBe(8)
+    })
+    test("get by value", () => {
+        expect(map.get("juan")).toMatch("le gusta nadar")
+    })
+    test("keys", () => {
+        expect(map.keys()).toHaveLength(7);
+    })
+    test("values", () => {
+        expect(map.values()).toHaveLength(7);
+    })
+    test("entries", () => {
+        expect(map.entries()).toHaveLength(7);
+    })
+    test("remove a non existed ", () => {
+        expect(map.remove("Zapico")).toBeFalsy();
+    })
+    test("remove a existed ", () => {
+        expect(map.remove("juan")).toBeTruthy();
+    })
+    test("clear", () => {
+        map.clear();
+        expect(map.length()).toBe(0);
     })
 })
